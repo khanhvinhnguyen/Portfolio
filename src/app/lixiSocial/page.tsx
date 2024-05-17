@@ -29,16 +29,7 @@ const lixiSocial = () => {
         <div className="col-span-4">
           <p>Project</p>
           <h2>Overview</h2>
-          <p>
-            This app was built using ReactJs and it hosted on Firebase. Users
-            are able to search properties based on an Address, City, or Zip code
-            to retrieve a list of active properties currently for sale. You will
-            be able to view property information as well as the specific
-            location of the property integrated with the Google Maps API. User
-            authentication is available so tou can sign-up & sing-in to your
-            account with an email address in order to save your favorite
-            properties. This is made possible with Zillow API.
-          </p>
+          <p>Write description app/web here</p>
 
           <button className="px-8 py-2 mt-4 mr-8">
             <a

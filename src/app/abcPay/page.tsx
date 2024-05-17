@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import lixiSocialImg from "/public/assets/projects/lixiSocial.png";
 import { RiRadioButtonFill } from "react-icons/ri";
-import { Router } from "next/router";
 
 const lixiSocial = () => {
   return (
@@ -21,7 +20,7 @@ const lixiSocial = () => {
 
         <div className="absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] text-white z-10">
           <h2 className="py-2">AbcPay Wallet</h2>
-          <h3>Position: Front-end Developer</h3>
+          <h3>Front-end Developer</h3>
         </div>
       </div>
 
