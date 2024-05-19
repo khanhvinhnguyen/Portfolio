@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -10,12 +9,20 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 import Logo from "/public/next.svg";
 
+const contactData = {
+  linkedIn: "https://www.linkedin.com/in/khanhvinhnguyen/",
+  github: "https://github.com/khanhvinhnguyen",
+  email: "vinhnk.work@gmail.com",
+};
+
 const NavBar = () => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState("#ecf0f3");
   const [linkColor, setLinkColor] = useState("#1f2937");
   const pathname = usePathname();
+
+  const { linkedIn, github, email } = contactData;
 
   useEffect(() => {
     if (pathname === "/lixiSocial" || pathname === "/abcPay") {
@@ -154,18 +161,30 @@ const NavBar = () => {
               </p>
 
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                <Link
+                  href={linkedIn}
+                  className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
                   <FaLinkedinIn />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                </Link>
+                <Link
+                  href={github}
+                  className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
                   <FaGithub />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                </Link>
+                <Link
+                  href={`mailto:${email}`}
+                  className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
                   <AiOutlineMail />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                </Link>
+                <Link
+                  href="/#contact"
+                  className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                >
                   <BsFillPersonLinesFill />
-                </div>
+                </Link>
               </div>
             </div>
           </div>

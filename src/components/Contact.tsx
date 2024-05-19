@@ -2,13 +2,18 @@ import React from "react";
 import Image from "next/image";
 
 import contactImg from "/public/assets/contactImg.jpg";
-import { AiOutlineMail } from "react-icons/ai";
-import { BsFillPersonLinesFill } from "react-icons/bs";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import Link from "next/link";
-import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import ContactItems from "@/common/ContactItems";
+
+const mainData = {
+  name: "Nguyen Khanh Vinh",
+  job: "A Full-Stack Web Developer",
+  description:
+    "I am available for freelance or full-time positions. Contact me and let's talk.",
+};
 
 const Contact = () => {
+  const { name, job, description } = mainData;
+
   return (
     <div id="contact" className="w-full lg:h-screen">
       <div className="max-w-[1240px] mx-auto px-2 py-20 w-full">
@@ -28,29 +33,13 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <h2 className="py-2">Nguyen Khanh Vinh</h2>
-                <p>A Full-stack Developer</p>
-                <p className="p">
-                  I am available for freelance or full-time positions. Contact
-                  me and let's talk
-                </p>
+                <h2 className="py-2">{name}</h2>
+                <p>{job}</p>
+                <p className="p">{description}</p>
               </div>
               <div>
                 <p className="uppercase pt-8">Contact With Me</p>
-                <div className="flex items-center justify-between py-4">
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <FaLinkedinIn />
-                  </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <FaGithub />
-                  </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <AiOutlineMail />
-                  </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <BsFillPersonLinesFill />
-                  </div>
-                </div>
+                <ContactItems />
               </div>
             </div>
           </div>
@@ -67,6 +56,7 @@ const Contact = () => {
                       type="text"
                       name="name"
                       className="border-2 rounded-lg p-3 flex border-gray-300"
+                      autoComplete="off"
                     />
                   </div>
                   {/* Phone Number */}
@@ -78,6 +68,7 @@ const Contact = () => {
                       type="text"
                       name="phoneNum"
                       className="border-2 rounded-lg p-3 flex border-gray-300"
+                      autoComplete="off"
                     />
                   </div>
                 </div>
@@ -89,6 +80,7 @@ const Contact = () => {
                     type="email"
                     name="email"
                     className="border-2 rounded-lg p-3 flex border-gray-300"
+                    autoComplete="off"
                   />
                 </div>
                 {/* Subject */}
@@ -98,6 +90,7 @@ const Contact = () => {
                     type="text"
                     name="subject"
                     className="border-2 rounded-lg p-3 flex border-gray-300"
+                    autoComplete="off"
                   />
                 </div>
                 {/* Messenger */}
@@ -106,6 +99,7 @@ const Contact = () => {
                   <textarea
                     className="border-2 rounded-lg p-3 border-gray-300"
                     rows={10}
+                    autoComplete="off"
                   ></textarea>
                 </div>
                 {/* Button */}
@@ -116,13 +110,13 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center py-12">
+        {/* <div className="flex justify-center py-12">
           <Link href="/">
             <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
               <HiOutlineChevronDoubleUp size={30} className="text-[#5651e5" />
             </div>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );
