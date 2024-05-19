@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 
 import aboutImg from "/public/assets/aboutImg.jpg";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -29,9 +30,12 @@ const About = () => {
             interfaces and backend systems, utilizing the features of these
             technologies to create robust web applications.
           </p>
-          <p className="py-2 text-gray-600 underline cursor-pointer">
+          <Link
+            href="/#projects"
+            className="py-2 text-gray-600 underline cursor-pointer"
+          >
             Check out some of my latest projects
-          </p>
+          </Link>
         </div>
         <div className="ư-full h-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4 hover:scale-105 ease-in duration-300">
           <Image src={aboutImg} alt="" className="rounded-xl" />
