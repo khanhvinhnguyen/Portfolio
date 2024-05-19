@@ -12,6 +12,7 @@ import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiNestjs } from "react-icons/si";
 import { TbBrandThreejs } from "react-icons/tb";
 
+// https://react-icons.github.io/react-icons/search/#q=
 const skillList: {
   img: IconType;
   name: string;
