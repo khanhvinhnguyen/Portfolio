@@ -1,8 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import { Form, Input } from "antd";
 
-import contactImg from "/public/assets/contactImg.jpg";
+import contactImg from "/public/assets/images/contactImg.jpg";
 import ContactItems from "@/common/ContactItems";
+import { sendMail } from "@/lib/mail";
 
 const mainData = {
   name: "Nguyen Khanh Vinh",
@@ -14,9 +16,18 @@ const mainData = {
 const Contact = () => {
   const { name, job, description } = mainData;
 
+  const send = async () => {
+    "use server";
+    await sendMail({
+      to: "vinhnk.work@gmail.com",
+      name: "Vinh",
+      subject: "Test Mail",
+    });
+  };
+
   return (
     <div id="contact" className="w-full lg:h-screen">
-      <div className="max-w-[1240px] mx-auto px-2 py-20 w-full">
+      <div className="max-w-[1240px] mx-auto px-2 py-28 w-full">
         <p className="text-xl tracking-widest uppercase text-[#5651e5]">
           Contact
         </p>
@@ -57,6 +68,7 @@ const Contact = () => {
                       name="name"
                       className="border-2 rounded-lg p-3 flex border-gray-300"
                       autoComplete="off"
+                      required
                     />
                   </div>
                   {/* Phone Number */}
@@ -76,21 +88,23 @@ const Contact = () => {
                 {/* Email */}
                 <div className="flex flex-col py-2">
                   <label className="uppercase text-sm py-2">Email</label>
-                  <input
+                  <Input
                     type="email"
                     name="email"
                     className="border-2 rounded-lg p-3 flex border-gray-300"
                     autoComplete="off"
+                    required
                   />
                 </div>
                 {/* Subject */}
                 <div className="flex flex-col py-2">
                   <label className="uppercase text-sm py-2">Subject</label>
-                  <input
+                  <Input
                     type="text"
                     name="subject"
                     className="border-2 rounded-lg p-3 flex border-gray-300"
                     autoComplete="off"
+                    required
                   />
                 </div>
                 {/* Messenger */}
@@ -103,7 +117,10 @@ const Contact = () => {
                   ></textarea>
                 </div>
                 {/* Button */}
-                <button className="w-full p-4 test-gray-100 mt-4">
+                <button
+                  className="w-full p-4 test-gray-100 mt-4"
+                  formAction={send}
+                >
                   Send Messenger
                 </button>
               </form>

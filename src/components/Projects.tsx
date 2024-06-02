@@ -1,10 +1,9 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 
 import ProjectItem from "./ProjectItem";
-import lixiSocial from "/public/assets/projects/lixiSocial.png";
-import abcPayWallet from "/public/assets/projects/lixiSocial.png";
+import lixiSocial from "/public/assets/images/projects/lixiSocial.png";
+import abcPayWallet from "/public/assets/images/projects/lixiSocial.png";
+import solarSystemMain from "/public/assets/images/projects/solarSystemMain2.png";
 
 const ProjectList: {
   title: string;
@@ -24,6 +23,12 @@ const ProjectList: {
     projURL: "/abcPay",
     mainTech: "Angular + Ionic",
   },
+  {
+    title: "Solar System",
+    bgImg: solarSystemMain,
+    projURL: "/solarSystem",
+    mainTech: "ReactJS + ThreeJS",
+  },
 ];
 
 const Projects = () => {
@@ -32,7 +37,7 @@ const Projects = () => {
       id="projects"
       className={ProjectList.length <= 2 ? "w-full h-screen" : "w-full"}
     >
-      <div className="max-w-[1240px] mx-auto px-2 py-20">
+      <div className="max-w-[1240px] mx-auto px-2 py-28">
         <p className="text-xl text-[#5651e5] uppercase tracking-widest">
           Projects
         </p>

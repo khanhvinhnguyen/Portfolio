@@ -25,29 +25,49 @@ const NavBar = () => {
   const { linkedIn, github, email } = contactData;
 
   useEffect(() => {
-    if (pathname === "/lixiSocial" || pathname === "/abcPay") {
-      setNavBg("transparent");
-      setLinkColor("#ecf0f3");
-    } else {
-      setNavBg("#ecf0f3");
-      setLinkColor("#1f2937");
-    }
-  }, [pathname]);
+    const handleNavBg = () => {
+      if (pathname !== "/") {
+        if (window.scrollY < 408) {
+          setNavBg("transparent");
+          setLinkColor("#ecf0f3");
+        } else {
+          setNavBg("#ecf0f3");
+          setLinkColor("#1f2937");
+        }
+      } else {
+        setNavBg("#ecf0f3");
+        setLinkColor("#1f2937");
+      }
+    };
 
-  const handleNav = () => {
-    setNav(!nav);
-  };
+    handleNavBg();
+    window.addEventListener("scroll", handleNavBg);
+
+    return () => {
+      window.removeEventListener("scroll", handleNavBg);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     const handleShadow = () => {
-      if (window.screenY >= 90) {
+      if (window.scrollY >= 408) {
         setShadow(true);
       } else {
         setShadow(false);
       }
     };
+
+    handleShadow();
     window.addEventListener("scroll", handleShadow);
+
+    return () => {
+      window.removeEventListener("scroll", handleShadow);
+    };
   }, []);
+
+  const handleNav = () => {
+    setNav(!nav);
+  };
 
   return (
     <div
@@ -58,7 +78,7 @@ const NavBar = () => {
           : "fixed w-full h-20 z-[100]"
       }
     >
-      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
+      <div className="flex justify-between items-center w-full h-full px-6 2xl:px-16">
         {/* Logo */}
         <Link href="/">
           <Image src={Logo} alt="" width="125" height="50" />
