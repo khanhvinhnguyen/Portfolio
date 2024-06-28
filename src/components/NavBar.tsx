@@ -5,8 +5,7 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-
+import { FaArrowLeft, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import Logo from "/public/next.svg";
 
 const contactData = {
@@ -27,7 +26,7 @@ const NavBar = () => {
   useEffect(() => {
     const handleNavBg = () => {
       if (pathname !== "/") {
-        if (window.scrollY < 408) {
+        if (window.scrollY < 123) {
           setNavBg("transparent");
           setLinkColor("#ecf0f3");
         } else {
@@ -50,7 +49,7 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleShadow = () => {
-      if (window.scrollY >= 408) {
+      if (window.scrollY >= 123) {
         setShadow(true);
       } else {
         setShadow(false);
@@ -78,11 +77,27 @@ const NavBar = () => {
           : "fixed w-full h-20 z-[100]"
       }
     >
-      <div className="flex justify-between items-center w-full h-full px-6 2xl:px-16">
+      <div
+        className="flex justify-between items-center w-full h-full px-6 2xl:px-16"
+        style={{
+          justifyContent: pathname !== "/" ? "space-between" : "flex-end",
+        }}
+      >
         {/* Logo */}
-        <Link href="/">
+        {/* <Link href="/">
           <Image src={Logo} alt="" width="125" height="50" />
-        </Link>
+        </Link> */}
+        {pathname !== "/" && (
+          <Link href="/#projects">
+            <p
+              className="flex gap-4 items-center cursor-pointer"
+              style={{ color: `${linkColor}` }}
+            >
+              <FaArrowLeft />
+              BACK
+            </p>
+          </Link>
+        )}
 
         {/* Side bar */}
         <div>

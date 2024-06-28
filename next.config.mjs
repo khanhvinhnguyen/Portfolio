@@ -1,14 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  module: {
-    rules: [
-      {
-        test: /\.json$/,
-        loader: 'json-loader',
-        type: 'javascript/auto' // This is important for Webpack 5
-      }
-    ]
-  }
-};
 
-export default nextConfig;
+export const reactStrictMode = false;
+export const webpack5 = true;
+export function webpack(config) {
+  config.resolve.fallback = { fs: false };
+
+  return config;
+}

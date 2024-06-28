@@ -6,7 +6,7 @@ const mainData = {
   name: "Vinh",
   job: "A Full-Stack Web Developer",
   description:
-    "Experienced full-stack developer proficient in web development with a comprehensive understanding of front-end and back-end technologies. Dedicated to crafting seamless user experiences and adept at tackling challenges across the stack. Passionate about continuous learning and staying abreast of emerging technologies and best practices.",
+    "Experienced full-stack developer with 2 years in web development. Proficient in front-end and back-end technologies, specializing in intuitive interfaces and optimizing front-end functionality. Continuously learning new technologies and best practices.",
 };
 
 const Main = () => {

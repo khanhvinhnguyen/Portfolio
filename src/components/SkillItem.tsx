@@ -1,6 +1,4 @@
 import React from "react";
-import { IconType } from "react-icons";
-import { FaHtml5 } from "react-icons/fa";
 
 type SkillItemProps = {
   iconSkill: any;
@@ -17,7 +15,7 @@ const SkillItem = (props: SkillItemProps) => {
           <props.iconSkill size={64} />{" "}
         </div>
         <div className="flex flex-col items-center justify-center">
-          <h3>{nameSkill}</h3>
+          <p className="font-bold">{nameSkill}</p>
         </div>
       </div>
     </div>

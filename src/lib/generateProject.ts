@@ -1,12 +1,26 @@
+const fs = require('fs');
+const path = require('path');
 
+const projectsPath = path.join(__dirname, '../../public/assets/data/projects.json');
+const projectData = JSON.parse(fs.readFileSync(projectsPath, 'utf-8'));
+
+const srcPath = path.join(__dirname, '../../src/app');
+
+function createProjectFolder({ projectKey, project }) {
+    const projectFolderPath = path.join(srcPath, projectKey);
+    if (!fs.existsSync(projectFolderPath)) {
+        fs.mkdirSync(projectFolderPath);
+    }
+
+    const pageContent = `
     import React from 'react';
     import Image from 'next/image';
     import Link from 'next/link';
     import { RiRadioButtonFill } from 'react-icons/ri';
-    // import projImg from '/public/assets/images/projects/lixiSocial.png';
-    import projImg from '/public/assets/images/projects/lixiSocial.png';
+    // import projImg from '${project.imgData.length > 1 ? 'multiple images' : project.imgData[0].src}';
+    import projImg from '${project.imgData[0].src}';
 
-    const lixiSocial = () => {
+    const ${projectKey} = () => {
       return (
         <div className="w-full">
           <div className="w-screen h-[30vh] lg:h-[40vh] relative">
@@ -19,8 +33,8 @@
               alt="/"
             />
             <div className="absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] text-white z-10">
-              <h2 className="py-2">Lixi Social</h2>
-              <h3>Full-stack Developer</h3>
+              <h2 className="py-2">${project.title}</h2>
+              <h3>${project.detail.position}</h3>
             </div>
           </div>
 
@@ -28,54 +42,40 @@
             <div className="col-span-4">
               <p>Project</p>
               <h2>Overview</h2>
-              <p></p>
+              <p>${project.detail.description.overview}</p>
 
               <h3 className="pt-4">Responsibilities:</h3>
-              <p className="text-gray-600 pt-2 flex items-center">
+              ${project.detail.description.responsibilities.map(item=> 
+                `<p className="text-gray-600 pt-2 flex items-center">
                   <RiRadioButtonFill className="pr-2" />
-                  1
-                </p>
+                  ${item}
+                </p>`)
+                .join('')}
 
-              
+              ${project.detail.linkTrial ? `
               <button className="px-8 py-2 mt-4 mr-8">
-                <a target="_blank" href="https://lixi.social/" rel="noopener noreferrer">
+                <a target="_blank" href="${project.detail.linkTrial}" rel="noopener noreferrer">
                   Trial
                 </a>
-              </button>
+              </button>` : ''}
               
-              
+              ${project.detail.linkCode ? `
               <button className="px-8 py-2 mt-4">
-                <a target="_blank" href="https://github.com/bcProFoundation/lixilotus" rel="noopener noreferrer">
+                <a target="_blank" href="${project.detail.linkCode}" rel="noopener noreferrer">
                   Code
                 </a>
-              </button>
+              </button>` : ''}
             </div>
 
             <div className="col-span-4 md:col-span-1 shadow-xl shadow-gray-400 rounded-xl p-4">
               <div className="p-2">
                 <p className="text-center font-bold pb-2 underline">Technologies</p>
                 <div className="grid grid-cols-3 md:grid-cols-1">
-                  
+                  ${project.detail.technical.map(item => `
                   <p className="text-gray-600 py-2 flex items-center">
                     <RiRadioButtonFill className="pr-2" />
-                    ReactJS/NextJS
-                  </p>
-                  <p className="text-gray-600 py-2 flex items-center">
-                    <RiRadioButtonFill className="pr-2" />
-                    NodeJS/NestJS
-                  </p>
-                  <p className="text-gray-600 py-2 flex items-center">
-                    <RiRadioButtonFill className="pr-2" />
-                    PostgreSQL
-                  </p>
-                  <p className="text-gray-600 py-2 flex items-center">
-                    <RiRadioButtonFill className="pr-2" />
-                    Redis
-                  </p>
-                  <p className="text-gray-600 py-2 flex items-center">
-                    <RiRadioButtonFill className="pr-2" />
-                    BullMQ
-                  </p>
+                    ${item}
+                  </p>`).join('')}
                 </div>
               </div>
             </div>
@@ -87,5 +87,14 @@
       );
     };
 
-    export default lixiSocial;
-    
+    export default ${projectKey};
+    `;
+
+    fs.writeFileSync(path.join(projectFolderPath, 'page.tsx'), pageContent, 'utf-8');
+}
+
+Object.keys(projectData).forEach(key => {
+    createProjectFolder({ projectKey: key, project: projectData[key] });
+});
+
+console.log('Projects generated successfully.');

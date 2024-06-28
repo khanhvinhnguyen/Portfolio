@@ -3,10 +3,10 @@
     import Image from 'next/image';
     import Link from 'next/link';
     import { RiRadioButtonFill } from 'react-icons/ri';
-    // import projImg from '/public/assets/images/projects/lixiSocial.png';
-    import projImg from '/public/assets/images/projects/lixiSocial.png';
+    // import projImg from 'multiple images';
+    import projImg from '/public/assets/images/projects/solarSystemMain2.png';
 
-    const lixiSocial = () => {
+    const solarSystem = () => {
       return (
         <div className="w-full">
           <div className="w-screen h-[30vh] lg:h-[40vh] relative">
@@ -19,8 +19,8 @@
               alt="/"
             />
             <div className="absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] text-white z-10">
-              <h2 className="py-2">Lixi Social</h2>
-              <h3>Full-stack Developer</h3>
+              <h2 className="py-2">Solar System</h2>
+              <h3>Front-end Developer</h3>
             </div>
           </div>
 
@@ -28,24 +28,36 @@
             <div className="col-span-4">
               <p>Project</p>
               <h2>Overview</h2>
-              <p></p>
+              <p>This web application provides an interactive 3D representation of the Solar System. Built with modern web technologies including ReactJS for the front-end, Three.js for 3D rendering, and React-Three-Fiber for integrating Three.js with React, the application offers an engaging and educational experience for users to explore our Solar System.</p>
 
               <h3 className="pt-4">Responsibilities:</h3>
               <p className="text-gray-600 pt-2 flex items-center">
                   <RiRadioButtonFill className="pr-2" />
-                  1
+                  Implemented features such as a simple solar system display
+                </p><p className="text-gray-600 pt-2 flex items-center">
+                  <RiRadioButtonFill className="pr-2" />
+                  Focused on planets and displayed planet information in 3D
+                </p><p className="text-gray-600 pt-2 flex items-center">
+                  <RiRadioButtonFill className="pr-2" />
+                  Developed the structure of the Earth
+                </p><p className="text-gray-600 pt-2 flex items-center">
+                  <RiRadioButtonFill className="pr-2" />
+                  Created a slider to manage planetary rotation speed
+                </p><p className="text-gray-600 pt-2 flex items-center">
+                  <RiRadioButtonFill className="pr-2" />
+                  Added multi-language support Updated package version
                 </p>
 
               
               <button className="px-8 py-2 mt-4 mr-8">
-                <a target="_blank" href="https://lixi.social/" rel="noopener noreferrer">
+                <a target="_blank" href="https://cs105-solar-system.vercel.app/" rel="noopener noreferrer">
                   Trial
                 </a>
               </button>
               
               
               <button className="px-8 py-2 mt-4">
-                <a target="_blank" href="https://github.com/bcProFoundation/lixilotus" rel="noopener noreferrer">
+                <a target="_blank" href="https://github.com/khanhvinhnguyen/CS105-solar-system" rel="noopener noreferrer">
                   Code
                 </a>
               </button>
@@ -58,23 +70,11 @@
                   
                   <p className="text-gray-600 py-2 flex items-center">
                     <RiRadioButtonFill className="pr-2" />
-                    ReactJS/NextJS
+                    ReactJS
                   </p>
                   <p className="text-gray-600 py-2 flex items-center">
                     <RiRadioButtonFill className="pr-2" />
-                    NodeJS/NestJS
-                  </p>
-                  <p className="text-gray-600 py-2 flex items-center">
-                    <RiRadioButtonFill className="pr-2" />
-                    PostgreSQL
-                  </p>
-                  <p className="text-gray-600 py-2 flex items-center">
-                    <RiRadioButtonFill className="pr-2" />
-                    Redis
-                  </p>
-                  <p className="text-gray-600 py-2 flex items-center">
-                    <RiRadioButtonFill className="pr-2" />
-                    BullMQ
+                    ThreeJS
                   </p>
                 </div>
               </div>
@@ -87,5 +87,5 @@
       );
     };
 
-    export default lixiSocial;
+    export default solarSystem;
     
