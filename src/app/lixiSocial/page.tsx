@@ -2,9 +2,7 @@
 "use client"
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { RiRadioButtonFill } from 'react-icons/ri';
-false
 
 const imagesData = [
   {
@@ -23,8 +21,8 @@ const lixiSocial = () => {
           className="absolute z-1"
           layout="fill"
           objectFit="cover"
-          src={projImg}
-          alt="/"
+          src={imagesData[0].src}
+          alt={imagesData[0].alt}
         />
         
         <div className="absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] text-white z-10">

@@ -26,16 +26,14 @@ function createProjectFolder({ projectKey, project }) {
 "use client"
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { RiRadioButtonFill } from 'react-icons/ri';
-${project.imgData.length > 1 && `
+${project.imgData.length > 1 ? `
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-`}
-
+` : ""}
 const imagesData = ${JSON.stringify(project.imgData, null, 2)};
 
 const ${projectKey} = () => {
@@ -76,8 +74,8 @@ const ${projectKey} = () => {
           className="absolute z-1"
           layout="fill"
           objectFit="cover"
-          src={projImg}
-          alt="/"
+          src={imagesData[0].src}
+          alt={imagesData[0].alt}
         />
         `}
         <div className="absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] text-white z-10">

@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface ProjItemProps {
   bgImg: string;
@@ -12,7 +12,7 @@ interface ProjItemProps {
 const ProjectItem = (props: ProjItemProps) => {
   const { bgImg, projURL, title, mainTech } = props;
   return (
-    <div>
+    <Link href={projURL}>
       <div className="relative flex items-center justify-center h-[360px] w-full shadow-xl shadow-gray-400 rounded-xl p-4 group hover:bg-gradient-to-r from-[#5651e5] to-[#709dff]">
         <div className="relative h-full w-full rounded-xl overflow-hidden">
           <Image
@@ -28,14 +28,12 @@ const ProjectItem = (props: ProjItemProps) => {
             {title}
           </h3>
           <p className="pb-4 pt-2 text-white text-center">{mainTech}</p>
-          <Link href={projURL}>
-            <p className="text-center py-3 rounded-lg bg-white text-gray-700 font-bold cursor-pointer">
-              More Info
-            </p>
-          </Link>
+          <p className="text-center py-3 rounded-lg bg-white text-gray-700 font-bold cursor-pointer">
+            More Info
+          </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
