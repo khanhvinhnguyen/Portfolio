@@ -1,9 +1,27 @@
-import React from "react";
-import projectData from "../../public/data/projects.json";
+"use client";
+import React, { useEffect, useState } from "react";
 import { ProjectItem } from ".";
 
+interface Project {
+  title: string;
+  bgImg: string;
+  projURL: string;
+  mainTech: string;
+}
+
 const Projects = () => {
-  const projectList = Object.values(projectData);
+  const [projectList, setProjectList] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const response = await fetch("/assets/data/projects.json");
+      const data = await response.json();
+      setProjectList(Object.values(data));
+    };
+
+    fetchProjects();
+  }, []);
+
   return (
     <div
       id="projects"

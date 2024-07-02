@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { Form, Input } from "antd";
+import { Input } from "antd";
 
 import contactImg from "/public/assets/images/contactImg.jpg";
 import ContactItems from "@/common/ContactItems";
-import { sendMail } from "@/lib/mail";
+import { send } from "@/lib/sendMailAction";
 
 const mainData = {
   name: "Nguyen Khanh Vinh",
@@ -15,15 +15,6 @@ const mainData = {
 
 const Contact = () => {
   const { name, job, description } = mainData;
-
-  const send = async () => {
-    "use server";
-    await sendMail({
-      to: "vinhnk.work@gmail.com",
-      name: "Vinh",
-      subject: "Test Mail",
-    });
-  };
 
   return (
     <div id="contact" className="w-full lg:h-screen">
@@ -58,7 +49,7 @@ const Contact = () => {
           {/* Right */}
           <div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
             <div className="p-4">
-              <form>
+              <form method="post">
                 {/* Name */}
                 <div className="grid md:grid-cols-2 gap-4 w-full py-2">
                   <div className="flex flex-col">
@@ -114,6 +105,7 @@ const Contact = () => {
                     className="border-2 rounded-lg p-3 border-gray-300"
                     rows={10}
                     autoComplete="off"
+                    name="message"
                   ></textarea>
                 </div>
                 {/* Button */}
