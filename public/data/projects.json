@@ -12,18 +12,23 @@
       "linkCode": "https://github.com/bcProFoundation/lixilotus",
       "description":
         {
-          "overview": "",
-          "responsibilities":["1"]
+          "overview": "Lixi is a social network that is the infrastructure to build wallets and give away applications for Lotus coins.",
+          "responsibilities":[
+            "Managed UI/UX and implemented additional functionalities (both front-end and back-end) based on stakeholder requirements.",
+            "Designed database schema and implemented back-end services.",
+            "Collaborated with the team leader to define and improve the team's workflow.",
+            "Implemented BullMQ to streamline messaging notifications, increasing user engagement."
+          ]
         }
     },
     "imgData": [
-      { "src": "/public/assets/images/projects/lixiSocial.png", "alt": "Lixi Social Web" }
+      { "src": "/assets/images/projects/lixiSocial.png", "alt": "Lixi Social Web" }
     ]
   },
   "abcPayWallet": {
     "title": "AbcPay Wallet",
     "bgImg": "/assets/images/projects/lixiSocial.png",
-    "projURL": "/abcPay",
+    "projURL": "/abcPayWallet",
     "mainTech": "Angular + Ionic",
     "detail": {
       "position": "Front-end Developer",
@@ -33,12 +38,17 @@
       "linkCode": "",
       "description":
         {
-          "overview": "",
-          "responsibilities":["1"]
+          "overview": "AbcPay is an advanced multi-currency crypto wallet, featuring Lotus, eCash, BCH, DOGE, and LTC. AbcPay provides cutting-edge features such as a multi-signature wallet, 2FA...",
+          "responsibilities":[
+            "Developed UI to support cross-platform mobile and PC",
+            "Implemented features for donations, coin swapping, charts, etc.",
+            "Participated in brainstorming sessions, providing innovative solutions to technical challenges", 
+            "Implemented localization support for a multi-language website"
+          ]
         }
     },
     "imgData": [
-      { "src": "/public/assets/images/projects/lixiSocial.png", "alt": "Lixi Social Web" }
+      { "src": "/assets/images/projects/lixiSocial.png", "alt": "Lixi Social Web" }
     ]
   },
   "solarSystem": {
@@ -65,9 +75,9 @@
         }
     },
     "imgData": [
-      { "src": "/public/assets/images/projects/solarSystemMain2.png", "alt": "Solar System Screen" },
-      { "src": "/public/assets/images/projects/solarSystemDetail.png", "alt": "Solar System Detail" },
-      { "src": "/public/assets/images/projects/solarSystemStructure.png", "alt": "Solar System Structure" }
+      { "src": "/assets/images/projects/solarSystemMain2.png", "alt": "Solar System Screen" },
+      { "src": "/assets/images/projects/solarSystemDetail.png", "alt": "Solar System Detail" },
+      { "src": "/assets/images/projects/solarSystemStructure.png", "alt": "Solar System Structure" }
     ]
   }
 }

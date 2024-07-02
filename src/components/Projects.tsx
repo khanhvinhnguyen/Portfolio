@@ -1,10 +1,9 @@
 import React from "react";
-import projectData from "../../public/assets/data/projects.json";
+import projectData from "../../public/data/projects.json";
 import { ProjectItem } from ".";
 
 const Projects = () => {
   const projectList = Object.values(projectData);
-
   return (
     <div
       id="projects"
