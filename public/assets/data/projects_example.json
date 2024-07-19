@@ -1,0 +1,27 @@
+{
+  "projectName_withoutSpace": {
+    "title": "Project Name",
+    "bgImg": "/assets/images/projects/___.png",
+    "projURL": "/projectName_withoutSpace",
+    "mainTech": "Technicals",
+    "detail": {
+      "position": "Position",
+      "duration": "Duration",
+      "technical": ["Technicals_1", "Technicals_2", "Technicals_3"],
+      "linkTrial": "link trial/deploy",
+      "linkCode": "link github",
+      "description":
+        {
+          "overview": "Project Overview",
+          "responsibilities":[
+            "Responsibilities_1",
+            "Responsibilities_2",
+            "Responsibilities_3"
+          ]
+        }
+    },
+    "imgData": [
+      { "src": "/assets/images/projects/___.png", "alt": "Project" }
+    ]
+  }
+}

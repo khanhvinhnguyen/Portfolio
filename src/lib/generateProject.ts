@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const projectsPath = path.join(__dirname, '../../public/data/projects.json');
+const projectsPath = path.join(__dirname, '../../public/assets/data/projects.json');
 const projectData = JSON.parse(fs.readFileSync(projectsPath, 'utf-8'));
 
 const srcPath = path.join(__dirname, '../../src/app');
