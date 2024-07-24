@@ -6,7 +6,7 @@ const projectData = JSON.parse(fs.readFileSync(projectsPath, 'utf-8'));
 
 const srcPath = path.join(__dirname, '../../src/app');
 
-function createProjectFolder({ projectKey, project }) {
+function createProjectFolder({ projectKey, project }: any) {
     const projectFolderPath = path.join(srcPath, projectKey);
     if (!fs.existsSync(projectFolderPath)) {
         fs.mkdirSync(projectFolderPath);
@@ -91,7 +91,7 @@ const ${projectKey} = () => {
           <p>${project.detail.description.overview}</p>
 
           <h3 className="pt-4">Responsibilities:</h3>
-          ${project.detail.description.responsibilities.map(item=> 
+          ${project.detail.description.responsibilities.map((item: any)=> 
             `<p className="text-gray-600 pt-2 flex items-center">
               <RiRadioButtonFill className="pr-2" />
               ${item}
@@ -117,7 +117,7 @@ const ${projectKey} = () => {
           <div className="p-2">
             <p className="text-center font-bold pb-2 underline">Technologies</p>
             <div className="grid grid-cols-3 md:grid-cols-1">
-              ${project.detail.technical.map(item => `
+              ${project.detail.technical.map((item: any) => `
               <p className="text-gray-600 py-2 flex items-center">
                 <RiRadioButtonFill className="pr-2" />
                 ${item}

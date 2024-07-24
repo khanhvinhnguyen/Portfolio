@@ -44,7 +44,9 @@ const Skills = () => {
             const Icon = skill.img;
             const nameSkill = skill.name;
 
-            return <SkillItem iconSkill={Icon} nameSkill={nameSkill} />;
+            return (
+              <SkillItem iconSkill={Icon} nameSkill={nameSkill} key={index} />
+            );
           })}
         </div>
       </div>

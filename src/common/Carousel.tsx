@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 
 import "swiper/css";
@@ -34,8 +35,16 @@ const Carousel = (data: CarouselProps[]) => {
       className="swiper_container"
     >
       <SwiperSlide>
-        {data.map((item) => {
-          return <img src={item.src} alt={item.alt} />;
+        {data.map((item, index) => {
+          return (
+            <Image
+              src={item.src}
+              alt={item.alt}
+              key={index}
+              width={0}
+              height={0}
+            />
+          );
         })}
       </SwiperSlide>
 
